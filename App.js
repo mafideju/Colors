@@ -4,6 +4,9 @@ import ComponentScreen from './src/screens/ComponentScreen';
 import ImageScreen from './src/screens/ImageScreen';
 import ListOne from './src/screens/ListScreen';
 import CounterScreen from './src/screens/CounterScreen';
+import ColorScreen from './src/screens/ColorScreen';
+import SquareScreen from './src/screens/SquareScreen';
+import FormScreen from './src/screens/FormScreen';
 // import { FlatList } from 'react-native-gesture-handler';
 
 const navigator = createStackNavigator(
@@ -12,7 +15,10 @@ const navigator = createStackNavigator(
     Components: ComponentScreen,
     List: ListOne,
     Image: ImageScreen,
-    Counter: CounterScreen
+    Counter: CounterScreen,
+    Color: ColorScreen,
+    Square: SquareScreen,
+    Form: FormScreen,
   },
   {
     initialRouteName: 'Home',

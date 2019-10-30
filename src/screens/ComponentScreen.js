@@ -8,10 +8,11 @@ const ComponentScreen = () => {
         <View>
           <Image 
             source={require("./../../assets/0.jpeg")}
+            style={styles.imageItem}
           />
         </View>
         <View>
-          <Text>Marcio Mafideju Rodrigues</Text>
+          <Text style={styles.imageText}>Marcio Mafideju Rodrigues</Text>
         </View>
       </View>
     </View>
@@ -31,6 +32,13 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
     height: '100%'
   },
+  imageItem: {
+    width: 400,
+    height: 480
+  },
+  imageText: {
+    fontSize: 30
+  }
 });
 
 export default ComponentScreen;

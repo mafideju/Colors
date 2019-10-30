@@ -34,6 +34,24 @@ const HomeScreen = ({ navigation }) => {
             style={styles.actionButton}
             onPress={() => navigation.navigate('Counter')} 
           />
+          <Button
+            title="Cores"
+            color="#007812"
+            style={styles.actionButton}
+            onPress={() => navigation.navigate('Color')} 
+          />
+          <Button
+            title="Quadrados"
+            color="#01CE45" 
+            style={styles.actionButton}
+            onPress={() => navigation.navigate('Square')} 
+          />
+          <Button
+            title="Forms"
+            color="#007812"
+            style={styles.actionButton}
+            onPress={() => navigation.navigate('Form')} 
+          />
         </View>
       </View>
     </View>
@@ -74,17 +92,17 @@ const styles = StyleSheet.create({
     color: '#00400A',
     fontFamily: 'monospace'
   },
-  buttonList: {
-    // width: '50%',
-    // flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 15,
-    // alignItems: 'center'
-  },
-  actionButton: {
-    flex: 1,
-  }
+  // buttonList: {
+  //   // width: '50%',
+  //   // flex: 1,
+  //   flexDirection: 'row',
+  //   justifyContent: 'space-between',
+  //   padding: 15,
+  //   // alignItems: 'center'
+  // },
+  // actionButton: {
+  //   flex: 1,
+  // }
 });
 
 export default HomeScreen;
