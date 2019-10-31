@@ -7,7 +7,7 @@ import CounterScreen from './src/screens/CounterScreen';
 import ColorScreen from './src/screens/ColorScreen';
 import SquareScreen from './src/screens/SquareScreen';
 import FormScreen from './src/screens/FormScreen';
-// import { FlatList } from 'react-native-gesture-handler';
+import BoxScreen from './src/screens/BoxScreen';
 
 const navigator = createStackNavigator(
   {
@@ -19,9 +19,10 @@ const navigator = createStackNavigator(
     Color: ColorScreen,
     Square: SquareScreen,
     Form: FormScreen,
+    Box: BoxScreen,
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Box',
     defaultNavigationOptions: {
       title: 'Mafideju Software Co.'
     }

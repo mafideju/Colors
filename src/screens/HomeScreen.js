@@ -52,6 +52,12 @@ const HomeScreen = ({ navigation }) => {
             style={styles.actionButton}
             onPress={() => navigation.navigate('Form')} 
           />
+          <Button
+            title="Caixas de Estilo"
+            color="#01CE45" 
+            style={styles.actionButton}
+            onPress={() => navigation.navigate('Box')} 
+          />
         </View>
       </View>
     </View>
