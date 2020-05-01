@@ -1,32 +1,17 @@
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-import HomeScreen from './src/screens/HomeScreen';
-import ComponentScreen from './src/screens/ComponentScreen';
-import ImageScreen from './src/screens/ImageScreen';
-import ListOne from './src/screens/ListScreen';
-import CounterScreen from './src/screens/CounterScreen';
-import ColorScreen from './src/screens/ColorScreen';
-import SquareScreen from './src/screens/SquareScreen';
-import FormScreen from './src/screens/FormScreen';
-import BoxScreen from './src/screens/BoxScreen';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
+import HomeScreen from './screens/HomeScreen';
+import ColorScreen from './screens/ColorScreen';
+import SquareScreen from './screens/SquareScreen';
 
-const navigator = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Components: ComponentScreen,
-    List: ListOne,
-    Image: ImageScreen,
-    Counter: CounterScreen,
-    Color: ColorScreen,
-    Square: SquareScreen,
-    Form: FormScreen,
-    Box: BoxScreen,
-  },
-  {
-    initialRouteName: 'Box',
-    defaultNavigationOptions: {
-      title: 'Mafideju Software Co.'
-    }
-  }
-);
+
+const navigator = createStackNavigator({
+  Principal: HomeScreen,
+  Cores: ColorScreen,
+  Quadrados: SquareScreen
+},{
+  initialRouteName: 'Principal'
+});
+
 
 export default createAppContainer(navigator);

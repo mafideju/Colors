@@ -1,9 +1,7 @@
 {
   "expo": {
-    "name": "exmulti",
-    "slug": "exmulti",
-    "privacy": "public",
-    "sdkVersion": "33.0.0",
+    "name": "colors",
+    "slug": "colors",
     "platforms": [
       "ios",
       "android",
