@@ -5,14 +5,14 @@ const ColorScreen = () => {
     const [colors, setColors] = useState([]);
 
     return (
-        <View>
+        <View style={styles.container}>
             <Button title="Nova Cor" onPress={() => setColors([...colors, RGB()])} />
             <FlatList
                 keyExtractor={(item) => item}
                 data={colors}
                 renderItem={({ item }) => (
-                    <View style={{ height: 100, width: 100, backgroundColor: item }}>
-                        <Text style={{ fontSize: 10, color:'#666' }}>{item}</Text>
+                    <View style={{ height: 40, width: 230, backgroundColor: item }}>
+                        <Text style={{ fontSize: 10, color:'#bbb' }}>{item}</Text>
                     </View>
                 )}
             />
@@ -30,6 +30,14 @@ const RGB = () => {
 const styles = StyleSheet.create({
     text: {
         fontSize: 8,
+    },
+    container: {
+        margin: 5,
+        padding: 40,
+        paddingBottom: 0,
+        backgroundColor: 'rgb(83, 116, 73)',
+        flex: 1,
+        borderRadius: 5
     }
 });
 
