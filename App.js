@@ -12,7 +12,7 @@ const navigator = createStackNavigator({
 }, {
   initialRouteName: 'Home',
   defaultNavigationOptions: {
-    title: 'Restaurantee',
+    title: 'Rest Aurant',
     headerTitleAlign: 'center',
     headerStyle: {
       backgroundColor: COLORS.primary2,

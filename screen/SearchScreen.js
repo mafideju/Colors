@@ -1,40 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import SearchBar from '../components/SearchBar';
+import ResultList from '../components/ResultList';
 import COLORS from '../utils/COLORS';
-import yelp from '../api/yelp';
+import useCalls from '../api/calls';
 
 const SearchScreen = () => {
     const [term, setTerm] = useState('');
-    const [results, setResults] = useState([]);
-    const [error, setError] = useState('')
+    const [searchApi, results, error] = useCalls();
 
-    const searchApi = async (searchTerm) => {
-        try {
-            const response = await yelp.get('/search', {
-                params: {
-                    limit: 50,
-                    term: searchTerm,
-                    location: 'são paulo'
-                }
-            });
-            setResults(response.data.businesses);
-        } catch (e) {
-            setError(`Algo Inesperado Aconteceu =|\nTente Novamente em Alguns Minutos\n${e}`)
-        };
+    const filterByPrice = (price) => {
+        return results.filter(res => res.price === price);
     };
 
-    // hooks para chamar uma unica vez a função desejada
-    useEffect(() => {
-        searchApi('pasta');
-    }, [])
-
     return (
-        <View style={styles.container}>
+        <View style={styles.container} vertical>
             <SearchBar
                 term={term}
                 onChangeTerm={setTerm}
-                onSubmitTerm={(val) => searchApi(val)}
+                onSubmitTerm={() => searchApi(term)}
             />
             <Text
                 style={styles.results}
@@ -45,21 +29,40 @@ const SearchScreen = () => {
             </Text>
             
             {error || error.length > 0 ? <Text style={styles.error}>{error}</Text> : null}
+
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <ResultList
+                    title='Luxo'
+                    results={filterByPrice('$$$$')}
+                />
+                <ResultList
+                    title='Especial'
+                    results={filterByPrice('$$$')}
+                />
+                <ResultList
+                    title='Efetivo'
+                    results={filterByPrice('$$')}
+                />
+                <ResultList
+                    title='Amigável'
+                    results={filterByPrice('$')}
+                />
+            </ScrollView>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: COLORS.white2,
+        flex: 1,
+        padding: 10
       },
       error: {
-        padding: 15
       },
       results: {
           paddingTop: 15,
-          paddingHorizontal: 15 
+          paddingBottom: 5
       }
 });
 
